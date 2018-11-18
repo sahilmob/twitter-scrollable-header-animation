@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ScrollView, Image, Text } from "react-native";
 
 HEADER_MAX_HEIGHT = 120;
 HEADER_MIN_HEIGHT = 70;
@@ -10,6 +10,14 @@ export default class App extends Component {
 		return (
 			<View style={styles.container}>
 				<View style={styles.header} />
+				<ScrollView style={styles.headerScrollView}>
+					<View style={styles.imgContainer}>
+						<Image style={styles.img} source={require("./assets/img.png")} />
+					</View>
+					<View style={styles.name}>
+						<Text>Sahil H. Mobaidin</Text>
+					</View>
+				</ScrollView>
 			</View>
 		);
 	}
@@ -19,7 +27,6 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: "center",
-		alignItems: "center",
 		backgroundColor: "#F5FCFF"
 	},
 	header: {
@@ -29,5 +36,28 @@ const styles = StyleSheet.create({
 		right: 0,
 		backgroundColor: "lightskyblue",
 		height: HEADER_MAX_HEIGHT
+	},
+	headerScrollView: {
+		flex: 1
+	},
+	imgContainer: {
+		height: PROFILE_IMAGE_MAX_HEIGHT,
+		width: PROFILE_IMAGE_MAX_HEIGHT,
+		borderRadius: PROFILE_IMAGE_MAX_HEIGHT / 2,
+		borderColor: "white",
+		borderWidth: 3,
+		overflow: "hidden",
+		marginTop: HEADER_MAX_HEIGHT - PROFILE_IMAGE_MAX_HEIGHT / 2,
+		marginLeft: 10
+	},
+	img: {
+		flex: 1,
+		width: null,
+		height: null
+	},
+	name: {
+		fontWeight: "bold",
+		fontSize: 26,
+		paddingLeft: 10
 	}
 });
